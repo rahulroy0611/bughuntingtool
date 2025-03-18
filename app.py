@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Welcome Bug Hunters !!!")
+st.title("Welcome Bug Hunters Group !!!")
 
 domain = st.text_input("Enter the domain name")
 
