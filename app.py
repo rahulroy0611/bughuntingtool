@@ -17,6 +17,8 @@ def subdomain(domain):
 
 
 domain = st.text_input("Enter the domain name")
+action = st.multiselect("Action: ",
+                        ["Subdomain Enumeration", "Subdomain Takeover"])
 
 if (st.button("Check")):
   if is_valid_domain(domain):
