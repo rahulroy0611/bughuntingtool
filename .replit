@@ -1,7 +1,7 @@
-run = "python app.py"
+run = "streamlit run app.py"
 modules = ["python-3.11"]
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "python app.py"]
+run = ["sh", "-c", "streamlit run app.py"]
