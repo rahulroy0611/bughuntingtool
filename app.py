@@ -1,7 +1,23 @@
 import streamlit as st
-import re
+import re, requests
 
-st.title("Welcome Bug Hunters Group1!!!")
+st.title("Welcome Bug Hunters Group!!!")
+bot_token = "7970524018:AAHYtReX0EtEU1Wjg7rWU8s5Y5z6BkJ9h18"
+channel_id = "2580630440"
+url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
+
+
+def send_message(message):
+  params = {
+      'chat_id':
+      channel_id,  # For username use '@channel_name', for ID use channel ID
+      'text': message
+  }
+  response = requests.get(url, params=params)
+  if response.status_code == 200:
+    st.success("Message sent successfully!")
+  else:
+    st.error("Failed to send message.")
 
 
 def is_valid_domain(domain):
@@ -13,7 +29,7 @@ def is_valid_domain(domain):
 
 
 def subdomain(domain):
-  st.success(domain)
+  send_message("Subdomain submitted:")
 
 
 domain = st.text_input("Enter the domain name")
@@ -22,7 +38,6 @@ action = st.multiselect("Action: ",
 
 if (st.button("Check")):
   if is_valid_domain(domain):
-    # st.success("The domain name is valid.")
     subdomain(domain)
   else:
     st.error("The domain name is invalid.")
